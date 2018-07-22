@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MusteriViewDlg" widgetVar="MusteriViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewMusteriTitle}">
+            <h:form id="MusteriViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{musteriController.selected != null}">
+                        <h:outputText value="#{bundle.ViewMusteriLabel_musid}"/>
+                        <h:outputText value="#{musteriController.selected.musid}" title="#{bundle.ViewMusteriTitle_musid}"/>
+                        <h:outputText value="#{bundle.ViewMusteriLabel_musadi}"/>
+                        <h:outputText value="#{musteriController.selected.musadi}" title="#{bundle.ViewMusteriTitle_musadi}"/>
+                        <h:outputText value="#{bundle.ViewMusteriLabel_musadres}"/>
+                        <h:outputText value="#{musteriController.selected.musadres}" title="#{bundle.ViewMusteriTitle_musadres}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="MusteriViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

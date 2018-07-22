@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="KitapViewDlg" widgetVar="KitapViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewKitapTitle}">
+            <h:form id="KitapViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{kitapController.selected != null}">
+                        <h:outputText value="#{bundle.ViewKitapLabel_kid}"/>
+                        <h:outputText value="#{kitapController.selected.kid}" title="#{bundle.ViewKitapTitle_kid}"/>
+                        <h:outputText value="#{bundle.ViewKitapLabel_kadi}"/>
+                        <h:outputText value="#{kitapController.selected.kadi}" title="#{bundle.ViewKitapTitle_kadi}"/>
+                        <h:outputText value="#{bundle.ViewKitapLabel_kfiyat}"/>
+                        <h:outputText value="#{kitapController.selected.kfiyat}" title="#{bundle.ViewKitapTitle_kfiyat}"/>
+                        <h:outputText value="#{bundle.ViewKitapLabel_kyazar}"/>
+                        <h:outputText value="#{kitapController.selected.kyazar}" title="#{bundle.ViewKitapTitle_kyazar}"/>
+                        <h:outputText value="#{bundle.ViewKitapLabel_stokid}"/>
+                        <h:outputText value="#{kitapController.selected.stokid}" title="#{bundle.ViewKitapTitle_stokid}"/>
+                        <h:outputText value="#{bundle.ViewKitapLabel_ytarihi}"/>
+                        <h:outputText value="#{kitapController.selected.ytarihi}" title="#{bundle.ViewKitapTitle_ytarihi}"/>
+                        <h:outputText value="#{bundle.ViewKitapLabel_yayinevi}"/>
+                        <h:outputText value="#{kitapController.selected.yayinevi}" title="#{bundle.ViewKitapTitle_yayinevi}"/>
+                        <h:outputText value="#{bundle.ViewKitapLabel_yazarid}"/>
+                        <h:outputText value="#{kitapController.selected.yazarid}" title="#{bundle.ViewKitapTitle_yazarid}"/>
+                        <h:outputText value="#{bundle.ViewKitapLabel_yayevid}"/>
+                        <h:outputText value="#{kitapController.selected.yayevid}" title="#{bundle.ViewKitapTitle_yayevid}"/>
+                        <h:outputText value="#{bundle.ViewKitapLabel_aciklama}"/>
+                        <h:outputText value="#{kitapController.selected.aciklama}" title="#{bundle.ViewKitapTitle_aciklama}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="KitapViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

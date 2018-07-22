@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="KitapCreateDlg" widgetVar="KitapCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateKitapTitle}">
+            <h:form id="KitapCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{kitapController.selected != null}">
+                        
+                        <p:outputLabel value="#{bundle.CreateKitapLabel_kid}" for="kid" />
+                        <p:inputText id="kid" value="#{kitapController.selected.kid}" title="#{bundle.CreateKitapTitle_kid}" required="true" requiredMessage="#{bundle.CreateKitapRequiredMessage_kid}"/>
+                       
+                        <p:outputLabel value="#{bundle.CreateKitapLabel_kadi}" for="kadi" />
+                        <p:inputText id="kadi" value="#{kitapController.selected.kadi}" title="#{bundle.CreateKitapTitle_kadi}" required="true" requiredMessage="#{bundle.CreateKitapRequiredMessage_kadi}"/>
+                       
+                        <p:outputLabel value="#{bundle.CreateKitapLabel_kfiyat}" for="kfiyat" />
+                        <p:inputText id="kfiyat" value="#{kitapController.selected.kfiyat}" title="#{bundle.CreateKitapTitle_kfiyat}" required="true" requiredMessage="#{bundle.CreateKitapRequiredMessage_kfiyat}"/>
+                       
+                        <p:outputLabel value="#{bundle.CreateKitapLabel_kyazar}" for="kyazar" />
+                        <p:inputText id="kyazar" value="#{kitapController.selected.kyazar}" title="#{bundle.CreateKitapTitle_kyazar}" required="true" requiredMessage="#{bundle.CreateKitapRequiredMessage_kyazar}"/>
+                       
+                        <p:outputLabel value="#{bundle.CreateKitapLabel_stokid}" for="stokid" />
+                        <p:inputText id="stokid" value="#{kitapController.selected.stokid}" title="#{bundle.CreateKitapTitle_stokid}" required="true" requiredMessage="#{bundle.CreateKitapRequiredMessage_stokid}"/>
+                       
+                        <p:outputLabel value="#{bundle.CreateKitapLabel_ytarihi}" for="ytarihi" />
+                        <p:inputText id="ytarihi" value="#{kitapController.selected.ytarihi}" title="#{bundle.CreateKitapTitle_ytarihi}" required="true" requiredMessage="#{bundle.CreateKitapRequiredMessage_ytarihi}"/>
+                       
+                        <p:outputLabel value="#{bundle.CreateKitapLabel_yayinevi}" for="yayinevi" />
+                        <p:inputText id="yayinevi" value="#{kitapController.selected.yayinevi}" title="#{bundle.CreateKitapTitle_yayinevi}" required="true" requiredMessage="#{bundle.CreateKitapRequiredMessage_yayinevi}"/>
+                       
+                        <p:outputLabel value="#{bundle.CreateKitapLabel_yazarid}" for="yazarid" />
+                        <p:inputText id="yazarid" value="#{kitapController.selected.yazarid}" title="#{bundle.CreateKitapTitle_yazarid}" required="true" requiredMessage="#{bundle.CreateKitapRequiredMessage_yazarid}"/>
+                        
+                        <p:outputLabel value="#{bundle.CreateKitapLabel_yayevid}" for="yayevid" />
+                        <p:inputText id="yayevid" value="#{kitapController.selected.yayevid}" title="#{bundle.CreateKitapTitle_yayevid}" required="true" requiredMessage="#{bundle.CreateKitapRequiredMessage_yayevid}"/>
+                      
+                        <p:outputLabel value="#{bundle.CreateKitapLabel_aciklama}" for="aciklama" />
+                       
+                        <p:inputText id="aciklama" value="#{kitapController.selected.aciklama}" title="#{bundle.CreateKitapTitle_aciklama}" required="true" requiredMessage="#{bundle.CreateKitapRequiredMessage_aciklama}"/>
+                     <h:outputLabel for="menu" value="kategori:"/>
+                    
+                        <p:selectCheckboxMenu id="menu" value="#{kitapController.selectedKategori}"
+                                              label="kitap"
+                                              filter="true" 
+                                              filterMatchMode="startsWith" 
+                                              panelStyle="width:250px"
+                                              >
+                            <f:selectItems 
+                                value="#{kitapController.selectedKategori}"
+                                var="item"
+                                itemLabel="#{item.adi}"
+                                itemValue="#{item}"
+                                />
+                        </p:selectCheckboxMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{kitapController.create}" value="#{bundle.Save}" update="display,:KitapListForm:datalist,:growl" oncomplete="handleSubmit(args,'KitapCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="KitapCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

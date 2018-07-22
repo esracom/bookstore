@@ -1,0 +1,23 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+
+
+    <script type="text/javascript">
+        function handleSubmit(args, dialog) {
+            var jqDialog = jQuery('#' + dialog);
+            if (args.validationFailed) {
+                jqDialog.effect('shake', {times: 3}, 100);
+            } else {
+                PF(dialog).hide();
+            }
+        }
+    </script>
+
+
+    
+
+</ui:composition>

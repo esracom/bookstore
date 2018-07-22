@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MusteriCreateDlg" widgetVar="MusteriCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateMusteriTitle}">
+            <h:form id="MusteriCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{musteriController.selected != null}">
+                        
+                        <p:outputLabel value="#{bundle.CreateMusteriLabel_musadi}" for="musadi"/>
+                        <p:inputText id="musadi" value="#{musteriController.selected.musadi}" title="#{bundle.CreateMusteriTitle_musadi}" />
+                        
+                        <p:outputLabel value="#{bundle.CreateMusteriLabel_musid}" for="musid" />
+                        <p:inputText id="musid" value="#{musteriController.selected.musid}" title="#{bundle.CreateMusteriTitle_musid}" required="true" requiredMessage="#{bundle.CreateMusteriRequiredMessage_musid}"/>
+                        
+                        <p:outputLabel value="#{bundle.CreateMusteriLabel_musadres}" for="musadres" />
+                        <p:inputText id="musadres" value="#{musteriController.selected.musadres}" title="#{bundle.CreateMusteriTitle_musadres}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{musteriController.create}" value="#{bundle.Save}" update="display,:MusteriListForm:datalist,:growl" oncomplete="handleSubmit(args,'MusteriCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="MusteriCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

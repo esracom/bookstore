@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="StokCreateDlg" widgetVar="StokCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateStokTitle}">
+            <h:form id="StokCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{stokController.selected != null}">
+                        
+                        <p:outputLabel value="stak adii" for="stokid" />
+                        <p:inputText id="stokid" value="#{stokController.selected.stokid}" title="#{bundle.CreateStokTitle_stokid}" required="true" requiredMessage="#{bundle.CreateStokRequiredMessage_stokid}"/>
+                        <p:outputLabel value="stok adedi" for="adet" />
+                        <p:inputText id="adet" value="#{stokController.selected.adet}" title="#{bundle.CreateStokTitle_adet}" required="true" requiredMessage="#{bundle.CreateStokRequiredMessage_adet}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{stokController.create}" value="#{bundle.Save}" update="display,:StokListForm:datalist,:growl" oncomplete="handleSubmit(args,'StokCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="StokCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

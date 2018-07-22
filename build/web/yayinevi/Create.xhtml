@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="YayineviCreateDlg" widgetVar="YayineviCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateYayineviTitle}">
+            <h:form id="YayineviCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{yayineviController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateYayineviLabel_yayevid}" for="yayevid" />
+                        <p:inputText id="yayevid" value="#{yayineviController.selected.yayevid}" title="#{bundle.CreateYayineviTitle_yayevid}" required="true" requiredMessage="#{bundle.CreateYayineviRequiredMessage_yayevid}"/>
+                        <p:outputLabel value="#{bundle.CreateYayineviLabel_yayevadi}" for="yayevadi" />
+                        <p:inputText id="yayevadi" value="#{yayineviController.selected.yayevadi}" title="#{bundle.CreateYayineviTitle_yayevadi}" required="true" requiredMessage="#{bundle.CreateYayineviRequiredMessage_yayevadi}"/>
+                        <p:outputLabel value="#{bundle.CreateYayineviLabel_yayevadres}" for="yayevadres" />
+                        <p:inputText id="yayevadres" value="#{yayineviController.selected.yayevadres}" title="#{bundle.CreateYayineviTitle_yayevadres}" />
+                        <p:outputLabel value="#{bundle.CreateYayineviLabel_yayevweb}" for="yayevweb" />
+                        <p:inputText id="yayevweb" value="#{yayineviController.selected.yayevweb}" title="#{bundle.CreateYayineviTitle_yayevweb}" />
+                        <p:outputLabel value="#{bundle.CreateYayineviLabel_yayevtel}" for="yayevtel" />
+                        <p:inputText id="yayevtel" value="#{yayineviController.selected.yayevtel}" title="#{bundle.CreateYayineviTitle_yayevtel}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{yayineviController.create}" value="#{bundle.Save}" update="display,:YayineviListForm:datalist,:growl" oncomplete="handleSubmit(args,'YayineviCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="YayineviCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="StokEditDlg" widgetVar="StokEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditStokTitle}">
+            <h:form id="StokEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{stokController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditStokLabel_stokid}" for="stokid" />
+                        <p:inputText id="stokid" value="#{stokController.selected.stokid}" title="#{bundle.EditStokTitle_stokid}" required="true" requiredMessage="#{bundle.EditStokRequiredMessage_stokid}"/>
+                        <p:outputLabel value="#{bundle.EditStokLabel_adet}" for="adet" />
+                        <p:inputText id="adet" value="#{stokController.selected.adet}" title="#{bundle.EditStokTitle_adet}" required="true" requiredMessage="#{bundle.EditStokRequiredMessage_adet}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{stokController.update}" value="#{bundle.Save}" update="display,:StokListForm:datalist,:growl" oncomplete="handleSubmit(args, 'StokEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="StokEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

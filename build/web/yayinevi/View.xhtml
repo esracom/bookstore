@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="YayineviViewDlg" widgetVar="YayineviViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewYayineviTitle}">
+            <h:form id="YayineviViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{yayineviController.selected != null}">
+                        <h:outputText value="#{bundle.ViewYayineviLabel_yayevid}"/>
+                        <h:outputText value="#{yayineviController.selected.yayevid}" title="#{bundle.ViewYayineviTitle_yayevid}"/>
+                        <h:outputText value="#{bundle.ViewYayineviLabel_yayevadi}"/>
+                        <h:outputText value="#{yayineviController.selected.yayevadi}" title="#{bundle.ViewYayineviTitle_yayevadi}"/>
+                        <h:outputText value="#{bundle.ViewYayineviLabel_yayevadres}"/>
+                        <h:outputText value="#{yayineviController.selected.yayevadres}" title="#{bundle.ViewYayineviTitle_yayevadres}"/>
+                        <h:outputText value="#{bundle.ViewYayineviLabel_yayevweb}"/>
+                        <h:outputText value="#{yayineviController.selected.yayevweb}" title="#{bundle.ViewYayineviTitle_yayevweb}"/>
+                        <h:outputText value="#{bundle.ViewYayineviLabel_yayevtel}"/>
+                        <h:outputText value="#{yayineviController.selected.yayevtel}" title="#{bundle.ViewYayineviTitle_yayevtel}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="YayineviViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

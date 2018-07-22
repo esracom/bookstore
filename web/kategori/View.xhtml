@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="KategoriViewDlg" widgetVar="KategoriViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewKategoriTitle}">
+            <h:form id="KategoriViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{kategoriController.selected != null}">
+                        <h:outputText value="#{bundle.ViewKategoriLabel_kateid}"/>
+                        <h:outputText value="#{kategoriController.selected.kateid}" title="#{bundle.ViewKategoriTitle_kateid}"/>
+                        <h:outputText value="#{bundle.ViewKategoriLabel_kateadi}"/>
+                        <h:outputText value="#{kategoriController.selected.kateadi}" title="#{bundle.ViewKategoriTitle_kateadi}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="KategoriViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

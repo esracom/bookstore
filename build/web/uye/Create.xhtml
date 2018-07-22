@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UyeCreateDlg" widgetVar="UyeCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateUyeTitle}">
+            <h:form id="UyeCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{uyeController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateUyeLabel_uyeid}" for="uyeid" />
+                        <p:inputText id="uyeid" value="#{uyeController.selected.uyeid}" title="#{bundle.CreateUyeTitle_uyeid}" required="true" requiredMessage="#{bundle.CreateUyeRequiredMessage_uyeid}"/>
+                        <p:outputLabel value="#{bundle.CreateUyeLabel_uyeadi}" for="uyeadi" />
+                        <p:inputText id="uyeadi" value="#{uyeController.selected.uyeadi}" title="#{bundle.CreateUyeTitle_uyeadi}" />
+                        <p:outputLabel value="#{bundle.CreateUyeLabel_uyeadres}" for="uyeadres" />
+                        <p:inputText id="uyeadres" value="#{uyeController.selected.uyeadres}" title="#{bundle.CreateUyeTitle_uyeadres}" />
+                        <p:outputLabel value="#{bundle.CreateUyeLabel_uyecol}" for="uyecol" />
+                        <p:inputText id="uyecol" value="#{uyeController.selected.uyecol}" title="#{bundle.CreateUyeTitle_uyecol}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{uyeController.create}" value="#{bundle.Save}" update="display,:UyeListForm:datalist,:growl" oncomplete="handleSubmit(args,'UyeCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="UyeCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

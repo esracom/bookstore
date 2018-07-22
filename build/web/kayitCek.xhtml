@@ -1,0 +1,36 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+       xmlns:p="http://primefaces.org/ui">
+       <ui:composition template="/a.xhtml">
+    <ui:define name="body">
+    
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    
+    <h:body>
+        <h:dataTable value="#{kayitCek.yazarlarTablosu}" var="yaz">
+        <!--Burada var nesnesi her satır için özelleşmiş olacak ve DataTable bir döngü işletirmişcesine kayıtları ekrana dökecek.-->
+         <h:column>
+                <f:facet name="header"><!--Sütunun başlığını belirteceğimiz etiket.-->
+                    <h:outputLabel>Üye Adı</h:outputLabel><!--Sütunun başlığı.-->
+                </f:facet>
+             <h:outputLabel value="#{yaz.uyeadi}"/><!--Sütuna yazılacak değer .-->
+            </h:column>
+        
+            <h:column>
+                <f:facet name="header"><!--Sütunun başlığını belirteceğimiz etiket.-->
+                    <h:outputLabel>Üye Şifresi</h:outputLabel><!--Sütunun başlığı.-->
+                </f:facet>
+                <h:outputLabel value="#{yaz.uyecol}"/><!--Sütuna yazılacak değer .-->
+            </h:column>
+        </h:dataTable>
+    </h:body>
+     </ui:define>
+       </ui:composition>
+</html>

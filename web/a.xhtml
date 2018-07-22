@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            
+            
+
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>KITAPSEVER</title>
+            </f:facet>
+             <ui:include src="/WEB-INF/common.xhtml" />
+        </h:head>
+               <h:body>
+            <p:growl id="growl" life="3000" />
+
+            <p:layout fullPage="true">
+                <div >
+                <p:layoutUnit position="north" size="250" resizable="true" closable="true" collapsible="true">
+                   <div style="width:700px; height:200px; float:left; position:relative;">
+	<p:graphicImage name="/images/kitap.jpg" style="float:left; width:1339px; height:230px;"/>
+        <div style="position:absolute; left:50; bottom:50;" >
+            
+          
+            <div align="right">
+        <p:button outcome="/faces/index.xhtml" value="ÇIKIŞ YAP" icon="ui-icon-close"  >
+             <f:param name="productId" value="10" />
+         </p:button>
+            </div>
+         </div>
+      </div>
+                    
+         </p:layoutUnit>
+                    
+                    </div>
+               
+                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                   STAJ 2017 COPYRIGHT  
+                </p:layoutUnit>
+                <p:layoutUnit position="west" size="250"  header="GÜNCELLEME " collapsible="true">
+                   <p:menu>
+                     
+                                <p:menuitem value="KİTAP EKLE" url="/faces/kitap/List.xhtml"/>
+                                <p:menuitem value="MÜŞTERİ EKLE" url="/faces/musteri/List.xhtml" />
+                                <p:menuitem value="YAYINEVİ EKLE" url="/faces/yayinevi/List.xhtml" />
+                                <p:menuitem value="YAZAR EKLE" url="/faces/yazar/List.xhtml" />
+                                <p:menuitem value="KATEGORİ EKLE" url="/faces/kategori/List.xhtml" />
+                      
+                   </p:menu>
+                </p:layoutUnit>
+                
+                
+                 <p:layoutUnit position="east" size="250" header="GÖRÜNTÜLEME" collapsible="true">
+               <p:button outcome="/faces/kayitCekk.xhtml" value="KİTAP LİSTESİ " icon="ui-icon-flower">
+             <f:param name="productId" value="10" />
+                  </p:button>
+                    <p:button outcome="/faces/kayitCek.xhtml" value="ÜYE LİSTESİ" icon="ui-icon-flower">
+             <f:param name="productId" value="10" />
+                  </p:button>
+                    <p:button outcome="/faces/kayitCekm.xhtml" value="MÜŞTERİ LİSTESİ " icon="ui-icon-flower">
+             <f:param name="productId" value="10" />
+                  </p:button>
+                      <p:button outcome="/faces/kayitCekm.xhtml" value="YAYINEVİ LİSTESİ " icon="ui-icon-flower">
+             <f:param name="productId" value="10" />
+                  </p:button>
+                      <p:button outcome="/faces/kayitCekm.xhtml" value="YAZAR LİSTESİ " icon="ui-icon-flower">
+             <f:param name="productId" value="10" />
+                  </p:button>
+                   
+                  </p:layoutUnit>
+                
+                
+                
+                <p:layoutUnit position="center">
+                    <ui:insert name="body"> 
+                         <p:outputLabel for="inline" value="TIME IS PRICELESS" />
+                            <p:calendar id="inline" value="#{calendarView.date1}" mode="inline" />
+                      <p:link outcome="a.xhtml" value=" " style="font-size: xx-large "/>
+                    </ui:insert>
+              </p:layoutUnit>
+                
+                
+                 </p:layout>
+                 </h:body>
+         </f:view>
+</html>
+

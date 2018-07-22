@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="YazarViewDlg" widgetVar="YazarViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewYazarTitle}">
+            <h:form id="YazarViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{yazarController.selected != null}">
+                        <h:outputText value="#{bundle.ViewYazarLabel_yazarid}"/>
+                        <h:outputText value="#{yazarController.selected.yazarid}" title="#{bundle.ViewYazarTitle_yazarid}"/>
+                        <h:outputText value="#{bundle.ViewYazarLabel_yazaradi}"/>
+                        <h:outputText value="#{yazarController.selected.yazaradi}" title="#{bundle.ViewYazarTitle_yazaradi}"/>
+                        <h:outputText value="#{bundle.ViewYazarLabel_yazarweb}"/>
+                        <h:outputText value="#{yazarController.selected.yazarweb}" title="#{bundle.ViewYazarTitle_yazarweb}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="YazarViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

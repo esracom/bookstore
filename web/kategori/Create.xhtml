@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="KategoriCreateDlg" widgetVar="KategoriCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateKategoriTitle}">
+            <h:form id="KategoriCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{kategoriController.selected != null}">
+                        
+                         
+                        
+                        <p:outputLabel value="#{bundle.CreateKategoriLabel_kateid}" for="kateid" />
+                        <p:inputText id="kateid" value="#{kategoriController.selected.kateid}" title="#{bundle.CreateKategoriTitle_kateid}" required="true" requiredMessage="#{bundle.CreateKategoriRequiredMessage_kateid}"/>
+                        
+                        <p:outputLabel value="#{bundle.CreateKategoriLabel_kateadi}" for="kateadi" />
+                        <p:inputText id="kateadi" value="#{kategoriController.selected.kateadi}" title="#{bundle.CreateKategoriTitle_kateadi}" />
+                  
+                       
+
+                    
+                    
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{kategoriController.create}" value="#{bundle.Save}" update="display,:KategoriListForm:datalist,:growl" oncomplete="handleSubmit(args,'KategoriCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="KategoriCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
